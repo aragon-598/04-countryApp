@@ -15,7 +15,8 @@ export class ByCountryPageComponent {
   constructor(private countriesService:CountriesService) {}
 
   searchCountry(term:string):void{
-    this.countriesService.searchCountry(term)
+    const url = `name/${term}`
+    this.countriesService.getCountriesRequest(url)
                           .subscribe(countries =>{
                             this.countries = countries;
                           })
